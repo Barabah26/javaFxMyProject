@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -90,8 +92,17 @@ public class MainController {
 
     @FXML
     private void mainExit(ActionEvent event) {
-        Stage stage = (Stage) mainExit.getScene().getWindow();
-        stage.close();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Вхід з програми");
+
+        alert.setContentText("Ви впевненні, що хочете вийти з програми?");
+
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK){
+            Stage stage = (Stage) mainExit.getScene().getWindow();
+            stage.close();
+        }
     }
 
 

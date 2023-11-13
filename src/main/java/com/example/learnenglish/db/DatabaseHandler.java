@@ -69,7 +69,7 @@ public class DatabaseHandler extends Configs{
              PreparedStatement preparedStatement = connection.prepareStatement(select)) {
 
             preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword()); // Хешуйте пароль перед порівнянням
+            preparedStatement.setString(2, user.getPassword()); // Хешую пароль перед порівнянням
             resultSet = preparedStatement.executeQuery();
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -98,7 +98,7 @@ public class DatabaseHandler extends Configs{
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            // Тут ви можете взяти певні дії, такі як відображення користувачеві повідомлення про помилку.
+            
         }
 
         return userList;

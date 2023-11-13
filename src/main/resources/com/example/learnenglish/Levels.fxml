@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #237E42;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learnenglish.LevelsController">
    <children>
-      <Button layoutX="660.0" layoutY="23.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #1E5932; -fx-border-radius: 20px; -fx-border-color: #FFFFFF; -fx-background-radius: 20px;" text="Back" textFill="WHITE">
+      <Button fx:id="levelsBack" layoutX="660.0" layoutY="23.0" mnemonicParsing="false" onAction="#levelBack" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #1E5932; -fx-border-radius: 20px; -fx-border-color: #FFFFFF; -fx-background-radius: 20px;" text="Back" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -20,22 +19,22 @@
                   <Font size="32.0" />
                </font>
             </Label>
-            <Button layoutX="47.0" layoutY="99.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="A1" textFill="WHITE">
+            <Button fx:id="a1Button" layoutX="47.0" layoutY="99.0" mnemonicParsing="false" onAction="#a1" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="A1" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
             </Button>
-            <Button layoutX="526.0" layoutY="99.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="A2" textFill="WHITE">
+            <Button fx:id="a2Button" layoutX="526.0" layoutY="99.0" mnemonicParsing="false" onAction="#a2" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="A2" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
             </Button>
-            <Button layoutX="47.0" layoutY="288.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="B1" textFill="WHITE">
+            <Button fx:id="b1Button" layoutX="47.0" layoutY="288.0" mnemonicParsing="false" onAction="#b1" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="B1" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
             </Button>
-            <Button layoutX="526.0" layoutY="288.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="B2" textFill="WHITE">
+            <Button fx:id="b2Button" layoutX="526.0" layoutY="288.0" mnemonicParsing="false" onAction="#b2" prefHeight="82.0" prefWidth="226.0" style="-fx-background-color: #1E5932; -fx-border-radius: 40px; -fx-border-color: #FFFFFF; -fx-background-radius: 40px;" text="B2" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
