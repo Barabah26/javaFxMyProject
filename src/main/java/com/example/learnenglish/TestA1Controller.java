@@ -1,5 +1,8 @@
 package com.example.learnenglish;
 
+import com.example.learnenglish.db.DatabaseHandler;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,10 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TestA1Controller {
     private Stage dialogStage;
@@ -24,13 +29,13 @@ public class TestA1Controller {
     private Label countA1;
 
     @FXML
-    private TableView<?> tableTestA1;
+    private TableView<Word> tableTestA1;
 
     @FXML
-    private TableColumn<?, ?> translate;
+    private TableColumn<Word, String> translate;
 
     @FXML
-    private TableColumn<?, ?> wordsInEnglish;
+    private TableColumn<Word, String> wordsInEnglish;
 
     @FXML
     void a1TestBack(ActionEvent event) {

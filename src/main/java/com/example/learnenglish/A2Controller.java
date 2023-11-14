@@ -1,5 +1,7 @@
 package com.example.learnenglish;
 
+import com.example.learnenglish.db.DatabaseHandler;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class A2Controller {
     private Stage dialogStage;
@@ -22,13 +26,34 @@ public class A2Controller {
     private Button a2TestButton;
 
     @FXML
-    private TableView<?> tableLevelA2;
+    private TableView<Word> tableLevelA2;
 
     @FXML
-    private TableColumn<?, ?> translate;
+    private TableColumn<Word, String> translate;
 
     @FXML
-    private TableColumn<?, ?> wordsInEnglish;
+    private TableColumn<Word, String> wordsInEnglish;
+
+    @FXML
+    private void initialize() {
+        // Ініціалізація колонок
+        wordsInEnglish.setCellValueFactory(new PropertyValueFactory<>("wordsInEnglish"));
+        translate.setCellValueFactory(new PropertyValueFactory<>("translate"));
+
+        tableLevelA2.getItems().clear();
+
+        // Завантаження даних з бази даних
+        loadWordsFromDatabase();
+    }
+
+    private void loadWordsFromDatabase() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        List<Word> a2Words = databaseHandler.getA2Words();
+
+        // Встановлення нових даних для таблиці
+        tableLevelA2.setItems(FXCollections.observableArrayList(a2Words));
+    }
+
 
     @FXML
     void a2Back(ActionEvent event) {

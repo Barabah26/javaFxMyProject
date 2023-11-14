@@ -1,6 +1,7 @@
 package com.example.learnenglish.db;
 
 import com.example.learnenglish.User;
+import com.example.learnenglish.Word;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
@@ -98,12 +99,103 @@ public class DatabaseHandler extends Configs{
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            
+
         }
 
         return userList;
     }
 
+    public List<Word> getA1Words() {
+        String selectA1 = "SELECT * FROM a1";
+        List<Word> a1WordList = new ArrayList<>();
+
+        try (Connection connection = getDbConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectA1);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String wordsInEnglish = resultSet.getString("words_in_english");
+                String translate = resultSet.getString("translate");
+
+                Word word = new Word(wordsInEnglish, translate);
+                a1WordList.add(word);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return a1WordList;
+    }
+
+    public List<Word> getA2Words() {
+        String selectA1 = "SELECT * FROM a2";
+        List<Word> a2WordList = new ArrayList<>();
+
+        try (Connection connection = getDbConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectA1);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String wordsInEnglish = resultSet.getString("words_in_english");
+                String translate = resultSet.getString("translate");
+
+                Word word = new Word(wordsInEnglish, translate);
+                a2WordList.add(word);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return a2WordList;
+    }
+
+    public List<Word> getB1Words() {
+        String selectA1 = "SELECT * FROM b1";
+        List<Word> b1WordList = new ArrayList<>();
+
+        try (Connection connection = getDbConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectA1);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String wordsInEnglish = resultSet.getString("words_in_english");
+                String translate = resultSet.getString("translate");
+
+                Word word = new Word(wordsInEnglish, translate);
+                b1WordList.add(word);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return b1WordList;
+    }
+
+    public List<Word> getB2Words() {
+        String selectA1 = "SELECT * FROM b2";
+        List<Word> b1WordList = new ArrayList<>();
+
+        try (Connection connection = getDbConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectA1);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String wordsInEnglish = resultSet.getString("words_in_english");
+                String translate = resultSet.getString("translate");
+
+                Word word = new Word(wordsInEnglish, translate);
+                b1WordList.add(word);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return b1WordList;
+    }
 
 
 }
