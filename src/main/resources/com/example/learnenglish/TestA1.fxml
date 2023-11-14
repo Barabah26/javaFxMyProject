@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -23,13 +25,26 @@
          <children>
             <TableView fx:id="tableTestA1" layoutX="36.0" prefHeight="422.0" prefWidth="728.0">
                <columns>
-                  <TableColumn fx:id="wordsInEnglish" minWidth="-1.0" prefWidth="268.00006711483" text="Words in English" />
-                  <TableColumn fx:id="translate" minWidth="-1.0" prefWidth="268.7998962402344" text="Translate" />
+                  <TableColumn fx:id="wordsInEnglish" minWidth="-1.0" prefWidth="268.00006711483" text="Words in English">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="wordsInEnglish" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="translate" minWidth="-1.0" prefWidth="268.7998962402344" onEditCommit="#translateEditCommit" text="Translate">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="translate" />
+                     </cellValueFactory>
+                     <cellFactory>
+                        <TextFieldTableCell fx:factory="forTableColumn"/>
+
+                     </cellFactory>
+                  </TableColumn>
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+
             <Label fx:id="countA1" layoutX="36.0" layoutY="436.0" text="Your grade is:" textFill="WHITE">
                <font>
                   <Font size="20.0" />

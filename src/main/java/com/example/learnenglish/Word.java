@@ -5,9 +5,14 @@ public class Word {
     private String wordsInEnglish;
     private String translate;
 
+
     public Word(String wordsInEnglish, String translate) {
         this.wordsInEnglish = wordsInEnglish;
         this.translate = translate;
+    }
+
+    public Word(String wordsInEnglish) {
+        this.wordsInEnglish = wordsInEnglish;
     }
 
     public int getId() {
