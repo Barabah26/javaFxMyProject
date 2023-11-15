@@ -2,6 +2,7 @@ package com.example.learnenglish;
 
 import com.example.learnenglish.db.DatabaseHandler;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,7 +47,10 @@ public class SignUpController {
             Scene scene = new Scene(root);
             logInDialogStage.setScene(scene);
 
+            logInDialogStage.setResizable(false);
+
             logInController.setDialogStage(logInDialogStage);
+            logInDialogStage.setOnCloseRequest(Event::consume);
 
             logInDialogStage.show();
 
@@ -74,7 +78,10 @@ public class SignUpController {
                 Scene scene = new Scene(root);
                 logInDialogStage.setScene(scene);
 
+                logInDialogStage.setResizable(false);
+
                 logInController.setDialogStage(logInDialogStage);
+                logInDialogStage.setOnCloseRequest(Event::consume);
 
                 logInDialogStage.show();
 
@@ -110,7 +117,10 @@ public class SignUpController {
             Scene scene = new Scene(root);
             mController.setScene(scene);
 
+            mController.setResizable(false);
+
             mainController.setDialogStage(mController);
+            mController.setOnCloseRequest(Event::consume);
 
             mController.show();
 

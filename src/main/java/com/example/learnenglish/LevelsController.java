@@ -1,6 +1,7 @@
 package com.example.learnenglish;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,7 +46,10 @@ public class LevelsController {
             Scene scene = new Scene(root);
             a1.setScene(scene);
 
+            a1.setResizable(false);
+
             a1Controller.setDialogStage(a1);
+            a1.setOnCloseRequest(Event::consume);
 
             a1.show();
 
@@ -70,7 +74,11 @@ public class LevelsController {
             Scene scene = new Scene(root);
             a2.setScene(scene);
 
+            a2.setResizable(false);
+
             a2Controller.setDialogStage(a2);
+
+            a2.setOnCloseRequest(Event::consume);
 
             a2.show();
 
@@ -94,7 +102,10 @@ public class LevelsController {
             Scene scene = new Scene(root);
             b1.setScene(scene);
 
+            b1.setResizable(false);
+
             b1Controller.setDialogStage(b1);
+            b1.setOnCloseRequest(Event::consume);
 
             b1.show();
 
@@ -118,6 +129,9 @@ public class LevelsController {
             Scene scene = new Scene(root);
             b2.setScene(scene);
 
+            b2.setResizable(false);
+            b2.setOnCloseRequest(Event::consume);
+
             b2Controller.setDialogStage(b2);
 
             b2.show();
@@ -139,8 +153,11 @@ public class LevelsController {
             logController.initOwner(levelsBack.getScene().getWindow());
             Scene scene = new Scene(root);
             logController.setScene(scene);
+            logController.setResizable(false);
 
+            logController.setResizable(false);
             logInController.setDialogStage(logController);
+            logController.setOnCloseRequest(Event::consume);
 
             logController.show();
 

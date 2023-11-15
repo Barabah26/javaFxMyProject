@@ -2,6 +2,7 @@ package com.example.learnenglish;
 
 import com.example.learnenglish.db.DatabaseHandler;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -63,7 +64,9 @@ public class LogInController {
             Scene scene = new Scene(root);
             mController.setScene(scene);
 
+            mController.setResizable(false);
             signUpController.setDialogStage(mController);
+            mController.setOnCloseRequest(Event::consume);
 
             mController.show();
 
@@ -87,7 +90,10 @@ public class LogInController {
             Scene scene = new Scene(root);
             mController.setScene(scene);
 
+            mController.setResizable(false);
+
             signUpController.setDialogStage(mController);
+            mController.setOnCloseRequest(Event::consume);
 
             mController.show();
 
@@ -108,7 +114,6 @@ public class LogInController {
         if (databaseHandler.checkUser(user)) {
             // Установка успішності логіну в контролері LevelsController
             LevelsController.setLoginSuccessful(true);
-            System.out.println("Login successful");
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Levels.fxml"));
@@ -121,7 +126,9 @@ public class LogInController {
                 Scene scene = new Scene(root);
                 levelsDialogStage.setScene(scene);
 
+                levelsDialogStage.setResizable(false);
                 levelsController.setDialogStage(levelsDialogStage);
+                levelsDialogStage.setOnCloseRequest(Event::consume);
 
                 levelsDialogStage.show();
 

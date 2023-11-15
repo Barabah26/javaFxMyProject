@@ -18,9 +18,7 @@ public class User {
 
     }
     public static String hashPassword(String password) {
-        // Реалізуйте логіку хешування паролю тут
-        // Наприклад, використовуйте BCrypt для хешування
-        // Переконайтеся, що ви включили залежність для бібліотеки BCrypt у вашому проекті
+        // використовую BCrypt для хешування
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 

@@ -4,6 +4,7 @@ import com.example.learnenglish.db.DatabaseHandler;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -105,7 +106,7 @@ public class TestA1Controller {
 
 
     private void updateGradeLabel() {
-        countA1.setText("Your grade is: " + correctAnswersCount);
+        countA1.setText("Your grade is: " + correctAnswersCount + "/50");
     }
 
 
@@ -136,7 +137,9 @@ public class TestA1Controller {
             Scene scene = new Scene(root);
             backController.setScene(scene);
 
+            backController.setResizable(false);
             a1Controller.setDialogStage(backController);
+            backController.setOnCloseRequest(Event::consume);
 
             backController.show();
 

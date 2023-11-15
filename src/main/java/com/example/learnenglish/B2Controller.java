@@ -3,6 +3,7 @@ package com.example.learnenglish;
 import com.example.learnenglish.db.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -69,7 +70,10 @@ public class B2Controller {
             Scene scene = new Scene(root);
             levelController.setScene(scene);
 
+            levelController.setResizable(false);
+
             levelsController.setDialogStage(levelController);
+            levelController.setOnCloseRequest(Event::consume);
 
             levelController.showAndWait();
 
@@ -93,7 +97,10 @@ public class B2Controller {
             Scene scene = new Scene(root);
             testController.setScene(scene);
 
+            testController.setResizable(false);
+
             testB2Controller.setDialogStage(testController);
+            testController.setOnCloseRequest(Event::consume);
 
             testController.showAndWait();
 

@@ -2,6 +2,7 @@ package com.example.learnenglish;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -78,7 +79,10 @@ public class MainController {
             Scene scene = new Scene(root);
             signUpDialogStage.setScene(scene);
 
+            signUpDialogStage.setResizable(false);
+
             signUpController.setDialogStage(signUpDialogStage);
+            signUpDialogStage.setOnCloseRequest(Event::consume);
 
             signUpDialogStage.showAndWait();
 
@@ -93,17 +97,17 @@ public class MainController {
     @FXML
     private void mainExit(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Вхід з програми");
+        alert.setTitle("Вихід з програми");
 
         alert.setContentText("Ви впевненні, що хочете вийти з програми?");
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
 
-        if (result == ButtonType.OK){
-            Stage stage = (Stage) mainExit.getScene().getWindow();
-            stage.close();
+        if (result == ButtonType.OK) {
+            Platform.exit();
         }
     }
+
 
 
     public void setDialogStage(Stage dialogStage) {

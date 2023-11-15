@@ -30,13 +30,12 @@
                         <PropertyValueFactory property="wordsInEnglish" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="translate" minWidth="-1.0" prefWidth="268.7998962402344" onEditCommit="#translateEditCommit" text="Translate">
+                  <TableColumn fx:id="translate" minWidth="-1.0" onEditCommit="#translateEditCommit" prefWidth="268.7998962402344" text="Translate">
                      <cellValueFactory>
                         <PropertyValueFactory property="translate" />
                      </cellValueFactory>
                      <cellFactory>
-                        <TextFieldTableCell fx:factory="forTableColumn"/>
-
+                        <TextFieldTableCell fx:factory="forTableColumn" />
                      </cellFactory>
                   </TableColumn>
                </columns>
